@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tablero 2 filas con videos</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    background: #f2f2f2;
+}
+
+h1{
+    margin: 20px;
+}
+
+.tablero{
+    margin: auto;
+    width: 480px;
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(2, 60px);
+    border: 5px solid black;
+}
+
+.celda{
+    width: 60px;
+    height: 60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* colores */
+.blanca{ background:#f0d9b5; }
+.negra{ background:#000; }
+
+/* video dentro de la celda */
+.celda video{
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Tablero de Ajedrez (2 filas con videos)</h1>
+
+<div class="tablero">
+
+    <!-- FILA 1 -->
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <!-- FILA 2 -->
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="celda negra"></div>
+
+    <div class="celda blanca">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</div>
+
+</body>
+</html>

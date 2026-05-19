@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora Futurista</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#050816,#0f172a,#111827);
+    overflow:hidden;
+}
+
+/* EFECTO DE FONDO */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:cyan;
+    filter:blur(180px);
+    opacity:0.2;
+    top:-100px;
+    left:-100px;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#00ff88;
+    filter:blur(180px);
+    opacity:0.15;
+    bottom:-100px;
+    right:-100px;
+}
+
+/* CALCULADORA */
+
+.calculadora{
+    position:relative;
+    width:370px;
+    padding:25px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:
+    0px 0px 30px rgba(0,255,255,0.3),
+    0px 0px 60px rgba(0,255,255,0.1);
+}
+
+/* TITULO */
+
+.titulo{
+    text-align:center;
+    color:white;
+    margin-bottom:20px;
+}
+
+.titulo h1{
+    font-size:30px;
+    color:cyan;
+    text-shadow:0px 0px 15px cyan;
+}
+
+.titulo p{
+    color:#ddd;
+    font-size:15px;
+}
+
+/* PANTALLA */
+
+#pantalla{
+    width:100%;
+    height:80px;
+    border:none;
+    outline:none;
+    border-radius:20px;
+    margin-bottom:25px;
+    padding:20px;
+    font-size:35px;
+    text-align:right;
+    background:#0f172a;
+    color:cyan;
+    box-shadow:inset 0px 0px 15px rgba(0,255,255,0.3);
+}
+
+/* BOTONES */
+
+.botones{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+button{
+    height:70px;
+    border:none;
+    border-radius:20px;
+    font-size:24px;
+    cursor:pointer;
+    transition:0.25s;
+    color:white;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    box-shadow:0px 0px 10px rgba(255,255,255,0.05);
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0px 0px 20px cyan;
+}
+
+/* BOTONES ESPECIALES */
+
+.operador{
+    background:linear-gradient(135deg,cyan,#00b7ff);
+    color:black;
+    font-weight:bold;
+}
+
+.igual{
+    background:linear-gradient(135deg,#00ff88,#00c853);
+    color:black;
+    font-weight:bold;
+}
+
+.clear{
+    background:linear-gradient(135deg,#ff4b4b,#ff0000);
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#aaa;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="calculadora">
+
+<div class="titulo">
+
+<h1>CALCULADORA PRO</h1>
+<p>Diseño futurista • Ariel Giovanny</p>
+
+</div>
+
+<input type="text" id="pantalla" disabled>
+
+<div class="botones">
+
+<button class="clear" onclick="limpiar()">C</button>
+<button onclick="agregar('%')">%</button>
+<button onclick="agregar('/')">÷</button>
+<button class="operador" onclick="agregar('*')">×</button>
+
+<button onclick="agregar('7')">7</button>
+<button onclick="agregar('8')">8</button>
+<button onclick="agregar('9')">9</button>
+<button class="operador" onclick="agregar('-')">−</button>
+
+<button onclick="agregar('4')">4</button>
+<button onclick="agregar('5')">5</button>
+<button onclick="agregar('6')">6</button>
+<button class="operador" onclick="agregar('+')">+</button>
+
+<button onclick="agregar('1')">1</button>
+<button onclick="agregar('2')">2</button>
+<button onclick="agregar('3')">3</button>
+<button class="igual" onclick="calcular()">=</button>
+
+<button style="grid-column:span 2;" onclick="agregar('0')">0</button>
+<button onclick="agregar('.')">.</button>
+<button onclick="borrar()">⌫</button>
+
+</div>
+
+<div class="footer">
+
+<p>✨ Presentación HTML/CSS/JS ✨</p>
+
+</div>
+
+</div>
+
+<script>
+
+let pantalla = document.getElementById("pantalla");
+
+function agregar(valor){
+    pantalla.value += valor;
+}
+
+function limpiar(){
+    pantalla.value = "";
+}
+
+function borrar(){
+    pantalla.value = pantalla.value.slice(0,-1);
+}
+
+function calcular(){
+
+    try{
+        pantalla.value = eval(pantalla.value);
+    }
+
+    catch{
+        pantalla.value = "Error";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
